@@ -35,45 +35,46 @@ function parseSocketString(message: string): SocketRequest {
 }
 
 export default async function handleCommand(command: string): Promise<void> {
-  const params = parseSocketString(command);
-  const { action, reason, nas, ip, mac, speed } = params;
+  console.log(command);
+  // const params = parseSocketString(command);
+  // const { action, reason, nas, ip, mac, speed } = params;
 
-  if (action === "create") {
-    console.log(params);
-  }
-  if (action === "delete") {
-    console.log(params);
-  }
-  if (action === "on") {
-    console.log(params);
-  }
-  if (action === "off") {
-    console.log(params);
-  }
-  if (action === "start") {
-    console.log(params);
-  }
-  if (action === "stop") {
-    if (reason === "blocked") {
-      console.log(params);
-    }
-    if (reason === "changed") {
-      console.log(params);
-    }
-    if (reason === "managed") {
-      console.log(params);
-    }
-    if (reason === "timeout") {
-      console.log(params);
-    }
-    if (reason === "traffic") {
-      console.log(params);
-    }
-    if (reason === "port") {
-      console.log(params);
-    }
-    if (reason === "undefined") {
-      console.log(params);
-    }
-  }
+  // if (action === "create") {
+  //   console.log(params);
+  // }
+  // if (action === "delete") {
+  //   console.log(params);
+  // }
+  // if (action === "on") {
+  //   console.log(params);
+  // }
+  // if (action === "off") {
+  //   console.log(params);
+  // }
+  // if (action === "start") {
+  //   console.log(params);
+  // }
+  // if (action === "stop") {
+  //   if (reason === "blocked") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "changed") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "managed") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "timeout") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "traffic") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "port") {
+  //     console.log(params);
+  //   }
+  //   if (reason === "undefined") {
+  //     console.log(params);
+  //   }
+  // }
 }
