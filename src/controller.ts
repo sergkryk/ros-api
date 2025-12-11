@@ -41,6 +41,7 @@ export default async function handleCommand(command: string): Promise<void> {
 
   if (isSocketRequest(parsedParams)) {
     const { action, login, nas, ip } = parsedParams;
+    console.log("Параметры: ", action, login, nas, ip);
     if (action === "stop") {
       await RouterApi.removeLease(nas, ip);
     }

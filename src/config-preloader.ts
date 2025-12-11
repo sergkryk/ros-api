@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const NAS_SERVERS = ["10.45.0.156", "10.45.0.153", "10.45.0.55"] as const;
+const NAS_SERVERS = ["10.77.0.5", "10.77.0.6"] as const;
 export type NasServer = (typeof NAS_SERVERS)[number];
 
 const CONFIG_FILE = "nas-config.json";
