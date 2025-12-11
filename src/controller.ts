@@ -36,8 +36,19 @@ function parseSocketString(message: string): SocketRequest {
 
 export default async function handleCommand(command: string): Promise<void> {
   console.log(command);
-  // const params = parseSocketString(command);
-  // const { action, reason, nas, ip, mac, speed } = params;
+  // --action stop --reason timeout --session 3369e083 --login 38:6B:1C:95:47:C9 --nas 10.77.0.5 --ip 10.10.0.247 --shape 0 --mac 38:6b:1c:95:47:c9
+  // --action start --session 786ce083 --login 58:D5:6E:9E:46:E0 --nas 10.77.0.5 --ip 10.10.0.238 --shape 0 --user-name 58:D5:6E:9E:46:E0 --mac 58:d5:6e:9e:46:e0
+  const parsedParams = command.split("__").reduce(
+    (acc, el) => {
+      const [key, value] = el.split(" ");
+      if (key && value !== undefined) {
+        acc[key] = value;
+      }
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+  console.log(parsedParams);
 
   // if (action === "create") {
   //   console.log(params);
