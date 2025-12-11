@@ -24,18 +24,33 @@ if (!checkCredentials()) {
  */
 const server = net.createServer((client) => {
   client.on("data", (data) => {
-    const command = data.toString().trim();
+    let command = data.toString().trim();
+    console.log(`[${new Date().toISOString()}] Received:`, command);
+
+    client.write("OK\n");
+    client.end();
 
     handleCommand(command)
       .then(() => {
-        client.write("OK\n");
+        console.log(`[${new Date().toISOString()}] Processed:`, command);
       })
-      .catch((err) => {
-        client.write(`ERROR: ${err.message}\n`);
-      })
-      .finally(() => {
-        client.end();
+      .catch((error) => {
+        console.error(`[${new Date().toISOString()}] Error:`, error);
       });
+
+    command = "";
+
+    // const command = data.toString().trim();
+    // handleCommand(command)
+    //   .then(() => {
+    //     client.write("OK\n");
+    //   })
+    //   .catch((err) => {
+    //     client.write(`ERROR: ${err.message}\n`);
+    //   })
+    //   .finally(() => {
+    //     client.end();
+    //   });
   });
 
   client.on("error", (err) => {
