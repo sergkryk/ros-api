@@ -40,8 +40,13 @@ export default async function handleCommand(command: string): Promise<void> {
   );
 
   if (isSocketRequest(parsedParams)) {
-    const { action, login, nas, ip } = parsedParams;
+    const { action, reason, nas, ip } = parsedParams;
     if (action === "stop") {
+      if (reason === "timeout") {
+        console.log(`[Handler] Skipping lease removal for timeout - session likely already dead`);
+        return;
+      }
+
       await RouterApi.removeLease(nas, ip);
     }
   }

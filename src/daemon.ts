@@ -2,7 +2,6 @@ import * as net from "net";
 import * as fs from "fs";
 import handleCommand from "./controller";
 import { checkCredentials } from "./config-preloader";
-import { getConnection } from "./ros-openai";
 
 const SOCKET_PATH = "/tmp/mikrotik.sock";
 
